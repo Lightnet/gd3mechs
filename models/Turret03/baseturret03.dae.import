@@ -7,10 +7,10 @@ path="res://.import/baseturret03.dae-5ef690d2add7462474d74d337c399129.scn"
 [deps]
 
 source_file="res://models/Turret03/baseturret03.dae"
-source_md5="768804fca18f6c20a44006521a39f5c8"
+source_md5="f6b9ecefa5299d8771c3fba6587c4143"
 
 dest_files=[ "res://.import/baseturret03.dae-5ef690d2add7462474d74d337c399129.scn" ]
-dest_md5="4548348201b444dc804e1735fc6d544b"
+dest_md5="3b2867442b753a862fb79a8a4c212fdc"
 
 [params]
 

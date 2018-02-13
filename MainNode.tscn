@@ -17,7 +17,7 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 [node name="Control" type="Control" parent="." index="0"]
 
@@ -101,7 +101,6 @@ far = 100.0
 
 [node name="KinematicBody" type="KinematicBody" parent="Spatial" index="1"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -121,8 +120,6 @@ shape = SubResource( 1 )
 disabled = true
 
 [node name="Turret Root" parent="Spatial/KinematicBody" index="1" instance=ExtResource( 1 )]
-
-editor/display_folded = true
 
 [node name="KinematicBody2" type="KinematicBody" parent="Spatial" index="2"]
 
@@ -278,6 +275,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="KinematicBody6" type="KinematicBody" parent="Spatial" index="6"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80097, 0, -0.153242 )
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -316,7 +314,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="KinematicBody7" type="KinematicBody" parent="Spatial" index="7"]
 
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80097, 3.91089, -0.153242 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80097, 2.96942, -0.153242 )
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -354,7 +352,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="KinematicBody8" type="KinematicBody" parent="Spatial" index="8"]
 
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18548, 3.91089, -0.153242 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18548, 3.17604, -0.153242 )
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -392,7 +390,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="KinematicBody9" type="KinematicBody" parent="Spatial" index="9"]
 
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18548, 3.91089, -3.96897 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.18548, 3.24616, -3.96897 )
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -430,7 +428,7 @@ _sections_unfolded = [ "Transform" ]
 [node name="KinematicBody10" type="KinematicBody" parent="Spatial" index="10"]
 
 editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133626, 3.91089, -3.96897 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133626, 3.1971, -3.96897 )
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -581,8 +579,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="KinematicBody11" type="KinematicBody" parent="Spatial" index="14"]
 
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61721, 3.91089, -3.96897 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61721, 3.15678, -3.96897 )
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1
@@ -622,3 +619,4 @@ _sections_unfolded = [ "Transform" ]
 [connection signal="pressed" from="Control/ButtonRight" to="Spatial/KinematicBody/Turret Root" method="_on_ButtonRight_pressed"]
 
 
+[editable path="Spatial/KinematicBody/Turret Root"]

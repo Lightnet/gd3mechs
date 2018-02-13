@@ -66,36 +66,15 @@ func _process(delta):
 		#rotate( Vector3(0,1,0), deg2rad(10) )#works
 		#point.transform.origin = hit.position
 		#pass
-	bonename = "Base"
-	boneid = skeleton.find_bone(bonename)
-	var chassis_transformb = get_parent().get_global_transform()
-	var turret_baseb = skeleton.get_bone_pose(boneid)
-	
-	var turret_upb = chassis_transformb.basis.y.normalized()
-	var p1b = turret_baseb.origin
-	var p2b = p1b + turret_baseb.basis.x
-	var p3b = p1b + turret_baseb.basis.z
-	
-	var planeb = Plane(p1b, p2b, p3b)
-	var look_atb = planeb.project(pitchpos)
-	if(typeof(look_atb) == TYPE_VECTOR3):
-		var xb = (look_atb - turret_baseb.origin).normalized()
-		var yb = turret_upb.normalized()
-		var zb = xb.cross(yb).normalized()
-		var quaternion_current = Quat(turret_baseb.basis)
-		var quaternion_newb = quaternion_current.slerp(Basis(xb, yb, zb), delta*3.0)
-		#set_global_transform(Transform(quaternion_new, turret_transform.origin))
-		var transb = Transform(quaternion_newb, turret_baseb.origin)
-		skeleton.set_bone_pose( boneid, transb )
+	setbaserotation(delta)
+	setpitchrotation(delta)
 	
 	
 	#turret_base = turret_base.rotated( Vector3(0,1,0), deg2rad(20) * delta)
 	#var up = Vector3(0,1,0)
 	#turret_base = turret_base.looking_at(basepos, up)
-	
 	#skeleton.set_bone_pose( boneid, turret_base )
 	#print("test")
-	
 	#bonename = "turret"
 	#boneid = skeleton.find_bone(bonename)
 	#var turret_pitch = skeleton.get_bone_pose(boneid)
@@ -104,32 +83,6 @@ func _process(delta):
 	#turret_pitch = turret_pitch.looking_at(pitchpos, up)
 	#skeleton.set_bone_pose( boneid, turret_pitch )
 	#pass
-	
-	bonename = "turret"
-	boneid = skeleton.find_bone(bonename)
-	
-	var chassis_transform = get_parent().get_global_transform()
-	#var turret_transform = get_global_transform()
-	var turret_transform = skeleton.get_bone_pose(boneid)
-	# vector for rotation axis of turret
-	var turret_up = chassis_transform.basis.x.normalized()
-	# plane trough turret
-	#var p1 = turret_transform.origin
-	var p1 = turret_transform.origin + turret_transform.basis.y
-	var p2 = turret_transform.origin
-	var p3 = turret_transform.origin + turret_transform.basis.z
-	var plane = Plane(p1, p2, p3)
-	var look_at = plane.project(pitchpos)
-	if(typeof(look_at) == TYPE_VECTOR3):
-		var x = turret_up.normalized()
-		var y = (look_at - turret_transform.origin).normalized()
-		var z = x.cross(y).normalized()
-		var quaternion_current = Quat(turret_transform.basis)
-		var quaternion_new = quaternion_current.slerp(Basis(x, y, z), delta*3.0)
-		#set_global_transform(Transform(quaternion_new, turret_transform.origin))
-		var trans = Transform(quaternion_new, turret_transform.origin)
-		skeleton.set_bone_pose( boneid, trans )
-	
 	"""
 	var chassis_transform = get_parent().get_global_transform()
 	#var turret_transform = get_global_transform()
@@ -152,16 +105,65 @@ func _process(delta):
 		var trans = Transform(quaternion_new, turret_transform.origin)
 		skeleton.set_bone_pose( boneid, trans )
 	"""
-	
 	#var turret_pitch = skeleton.get_bone_pose(boneid)
 	#turret_pitch.rotate((get_transform().basis.y).normalized(),get_transform().basis.y.angle_to(Vector3))
 	#skeleton.set_bone_pose( boneid, turret_pitch )
+	
+func setbaserotation(delta):
+	bonename = "Base"
+	boneid = skeleton.find_bone(bonename)
+	var chassis_transformb = get_parent().get_global_transform()
+	var turret_baseb = skeleton.get_bone_pose(boneid)
+	
+	var turret_upb = chassis_transformb.basis.y.normalized()
+	var p1b = turret_baseb.origin
+	var p2b = p1b + turret_baseb.basis.x
+	var p3b = p1b + turret_baseb.basis.z
+	
+	var planeb = Plane(p1b, p2b, p3b)
+	var look_atb = planeb.project(pitchpos)
+	if(typeof(look_atb) == TYPE_VECTOR3):
+		var xb = (look_atb - turret_baseb.origin).normalized()
+		var yb = turret_upb.normalized()
+		var zb = xb.cross(yb).normalized()
+		var quaternion_current = Quat(turret_baseb.basis)
+		var quaternion_newb = quaternion_current.slerp(Basis(xb, yb, zb), delta*3.0)
+		#set_global_transform(Transform(quaternion_new, turret_transform.origin))
+		var transb = Transform(quaternion_newb, turret_baseb.origin)
+		skeleton.set_bone_pose( boneid, transb )
+
+func setpitchrotation(delta):
+	bonename = "turret"
+	boneid = skeleton.find_bone(bonename)
+	
+	var chassis_transform = get_parent().get_global_transform()
+	var turret_transform = skeleton.get_bone_pose(boneid)
+	# vector for rotation axis of turret
+	var turret_up = chassis_transform.basis.x.normalized()
+	# plane trough turret
+	#var p1 = turret_transform.origin
+	var p1 = turret_transform.origin + turret_transform.basis.x
+	var p2 = turret_transform.origin + turret_transform.basis.z
+	var p3 = turret_transform.origin
+	var plane = Plane(p1, p2, p3)
+	var look_at = plane.project(pitchpos)
+	if(typeof(look_at) == TYPE_VECTOR3):
+		var z = (look_at - turret_transform.origin).normalized()
+		var x = turret_up.normalized()
+		var y = x.cross(z).normalized()
+		
+		var quaternion_current = Quat(turret_transform.basis)
+		var quaternion_new = quaternion_current.slerp(Basis(x, y, z), delta*3.0)
+		#set_global_transform(Transform(quaternion_new, turret_transform.origin))
+		var trans = Transform(quaternion_new, turret_transform.origin)
+		skeleton.set_bone_pose( boneid, trans )
+	pass
 
 func _on_ButtonLeft_pressed():
 	angle += 10
 	var rot = Quat(Vector3(0, 1, 0), deg2rad(angle))
 	#var rot = Quat(Vector3(0, 1, 0), value * -1)
-	var t = get_parent().get_transform()
+	var t = get_parent().get_global_transform()
 	get_parent().set_transform(Transform(rot, t.origin))
 	pass # replace with function body
 
@@ -170,6 +172,6 @@ func _on_ButtonRight_pressed():
 	angle -= 10
 	var rot = Quat(Vector3(0, 1, 0), deg2rad(angle))
 	#var rot = Quat(Vector3(0, 1, 0), value * -1)
-	var t = get_parent().get_transform()
+	var t = get_parent().get_global_transform()
 	get_parent().set_transform(Transform(rot, t.origin))
 	pass # replace with function body
