@@ -147,10 +147,10 @@ func setpitchrotation(delta):
 	var p3 = turret_transform.origin
 	var plane = Plane(p1, p2, p3)
 	var look_at = plane.project(pitchpos)
-	if(typeof(look_at) == TYPE_VECTOR3):
+	if typeof(look_at) == TYPE_VECTOR3:
 		var z = (look_at - turret_transform.origin).normalized()
 		var x = turret_up.normalized()
-		var y = x.cross(z).normalized()
+		var y = z.cross(x).normalized()
 		
 		var quaternion_current = Quat(turret_transform.basis)
 		var quaternion_new = quaternion_current.slerp(Basis(x, y, z), delta*3.0)
