@@ -4,9 +4,27 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "run Godot",
+            "label": "Run Godot",
             "type": "shell",
             "command": "${config:GodotTools.editorPath} ${workspaceRoot}/MainNode.tscn",
+            "problemMatcher": []
+        },
+        {
+            "label": "Godot Editor",
+            "type": "shell",
+            "command": "${config:GodotTools.editorPath} -e ${workspaceRoot}/MainNode.tscn",
+            "problemMatcher": []
+        },
+        {
+            "label": "Godot Export",
+            "type": "shell",
+            "command": "${config:godotexportpath} -export \"Windows Desktop\" ${workspaceRoot} -path \"./release\" ",
+            "problemMatcher": []
+        },
+        {
+            "label": "Godot Script",
+            "type": "shell",
+            "command": "${config:GodotTools.editorPath} -s ${file}",
             "problemMatcher": []
         }
     ]
