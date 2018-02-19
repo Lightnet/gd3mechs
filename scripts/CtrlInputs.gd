@@ -11,6 +11,8 @@ func _ready():
 	
 func _input(event):
 	
+	
+	"""
 	if event is InputEventMouseMotion:
 		mouse_pos = Vector2(event.position.x,event.position.y)#event.pos to Vector2()
 		#print("move")
@@ -27,6 +29,7 @@ func _input(event):
 		pass
 	
 	#print("input")
+	"""
 	pass
 
 #func _process(delta):

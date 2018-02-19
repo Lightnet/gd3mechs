@@ -2,15 +2,15 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/mecha01.dae-f4dc353e222335da2e546b1aca1cd50f.scn"
+path="res://.import/gd3mecha01.dae-0292cfe32bed17645d2911025cf7e027.scn"
 
 [deps]
 
-source_file="res://models/mecha01/mecha01.dae"
-source_md5="ac7bd7078f9a339e0028dd9c29b0acb1"
+source_file="res://models/mecha01/gd3mecha01.dae"
+source_md5="61a1b2bf5a51ecbbc90784e9f7e244fc"
 
-dest_files=[ "res://.import/mecha01.dae-f4dc353e222335da2e546b1aca1cd50f.scn" ]
-dest_md5="cd7941ec1255880acb22bc265f3c074f"
+dest_files=[ "res://.import/gd3mecha01.dae-0292cfe32bed17645d2911025cf7e027.scn" ]
+dest_md5="65dffdd340ea24010f9728642f596172"
 
 [params]
 

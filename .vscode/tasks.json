@@ -18,7 +18,7 @@
         {
             "label": "Godot Export",
             "type": "shell",
-            "command": "${config:godotexportpath} -export \"Windows Desktop\" ${workspaceRoot} -path \"./release\" ",
+            "command": "${config:GodotTools.editorPath} --export \"Windows Desktop\" -path \"./release\" ",
             "problemMatcher": []
         },
         {
