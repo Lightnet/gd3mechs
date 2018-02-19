@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scripts/CtrlInputs.gd" type="Script" id=1]
-[ext_resource path="res://models/prefabs/Turret03.tscn" type="PackedScene" id=2]
+[ext_resource path="res://models/prefabs/Turret03.tscn" type="PackedScene" id=1]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -18,7 +17,7 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 [node name="Control" type="Control" parent="." index="0"]
 
@@ -33,7 +32,6 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-script = ExtResource( 1 )
 
 [node name="ButtonLeft" type="Button" parent="Control" index="0"]
 
@@ -85,8 +83,6 @@ align = 1
 
 [node name="Spatial" type="Spatial" parent="." index="1"]
 
-editor/display_folded = true
-
 [node name="Camera" type="Camera" parent="Spatial" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 0.857982, 0.51368, 0, -0.51368, 0.857982, 0, 2.8161, 3.86212 )
@@ -123,7 +119,7 @@ _sections_unfolded = [ "Transform" ]
 shape = SubResource( 1 )
 disabled = true
 
-[node name="Turret Root" parent="Spatial/KinematicBody" index="1" instance=ExtResource( 2 )]
+[node name="Turret Root" parent="Spatial/KinematicBody" index="1" instance=ExtResource( 1 )]
 
 [node name="KinematicBody2" type="KinematicBody" parent="Spatial" index="2"]
 
