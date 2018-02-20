@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var view_sensitivity = 0.25
+var view_sensitivity = 0.10
 const ACCEL= 2
 const DEACCEL= 4
 const MAX_SPEED = 10
@@ -66,27 +66,27 @@ func _input(event):
 	if event.is_action_pressed("Escape"):
 		get_tree().quit()
 		pass
+		
+	# Print the size of the viewport
+	#print("Viewport Resolution is: ", get_viewport().size)
+	#print("Mouse Position is: ", get_viewport().get_mouse_position())
 	
 	if event is InputEventMouseMotion:
-		#mouse_pos = Vector2(event.position.x,event.position.y)#event.pos to Vector2()
 		#print(event.get_property_list())
 		#print(last_position)
 		var delta = event.position - last_position
 		last_position = event.position
-		#print(last_position)
+		#check diff from mouse center drag
 		if last_position.x <= 510:
-			print("left?")
-			#self.rotate_y(1 * 0.01)
+		#if last_position.x <= 511:
 			if delta.x < 0:
-				self.rotate_y(-delta.x * 0.01)
+				self.rotate_y(-delta.x * view_sensitivity)
 		if last_position.x >= 512:
-			#self.rotate_y(-1 * 0.01)
+		#if last_position.x >= 511:
 			if delta.x > 0:
-				self.rotate_y(-delta.x * 0.01)
-		print(delta.x)
-		#if 
-			#print(delta.x)
-			#self.rotate_y(-delta.x * 0.01)
+				self.rotate_y(-delta.x * view_sensitivity)
+		#print(delta.x)
+		
 	if event.is_action_pressed("Fire"):
 		#print("fire")
 		if weapon_right != null:
