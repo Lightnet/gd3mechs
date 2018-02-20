@@ -6,6 +6,12 @@ const DEACCEL= 4
 const MAX_SPEED = 10
 slave var slave_vel = Vector3()
 
+export(NodePath) var node_hand_right
+export(NodePath) var node_hand_left
+
+var weapon_right
+var weapon_left
+
 #var mouse_pos = Vector2()
 #var toggle_mouse = false
 
@@ -14,6 +20,10 @@ var last_position = Vector2()
 func _ready():
 	# Called every time the node is added to the scene.
 	# Initialization here
+	if node_hand_right != null:
+		weapon_right = get_node(node_hand_right)
+	if node_hand_left != null:
+		weapon_left = get_node(node_hand_left)
 	pass
 
 #func _process(delta):
@@ -77,6 +87,11 @@ func _input(event):
 		#if 
 			#print(delta.x)
 			#self.rotate_y(-delta.x * 0.01)
-	if event.is_action_pressed("Up"):
-		#print("up")
+	if event.is_action_pressed("Fire"):
+		#print("fire")
+		if weapon_right != null:
+			#print("has fun?")
+			if weapon_right.has_method("fire"):
+				print("found fire")
+				weapon_right.fire()
 		pass

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/CtrlInputs.gd" type="Script" id=1]
 [ext_resource path="res://scripts/LBPlayer.gd" type="Script" id=2]
 [ext_resource path="res://models/prefabs/Turret03.tscn" type="PackedScene" id=3]
+[ext_resource path="res://prefabs/weapons/phweapon01.tscn" type="PackedScene" id=4]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -19,10 +20,11 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 [node name="Control" type="Control" parent="." index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -117,6 +119,8 @@ axis_lock_angular_z = false
 collision/safe_margin = 0.001
 script = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+node_hand_right = NodePath("Weapon01")
+node_hand_left = null
 
 [node name="CollisionShape" type="CollisionShape" parent="Spatial/KinematicBody" index="0"]
 
@@ -142,6 +146,10 @@ fov = 70.0
 size = 1.0
 near = 0.05
 far = 100.0
+
+[node name="Weapon01" parent="Spatial/KinematicBody" index="3" instance=ExtResource( 4 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.670086, 0.736772, -0.134036 )
 
 [node name="KinematicBody2" type="KinematicBody" parent="Spatial" index="2"]
 
