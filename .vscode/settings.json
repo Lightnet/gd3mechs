@@ -8,7 +8,7 @@
     "GodotTools.completeNodePath": false,
   
     // The absolute path of your godot editor
-    "GodotTools.editorPath": "E://Development//Godot3mono//Godot3mono.exe",
+    "GodotTools.editorPath": "E:\\Development\\Godot3\\Godot3.exe",
   
     // Turn on/off the syntax checking for GDScript
     "GodotTools.enableSyntaxChecking": true,

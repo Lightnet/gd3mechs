@@ -6,13 +6,13 @@
         {
             "label": "Run Godot",
             "type": "shell",
-            "command": "${config:GodotTools.editorPath} ${workspaceRoot}/MainNode.tscn",
+            "command": "${config:GodotTools.editorPath} --path \"${workspaceRoot}\"",
             "problemMatcher": []
         },
         {
             "label": "Godot Editor",
             "type": "shell",
-            "command": "${config:GodotTools.editorPath} -e ${workspaceRoot}/MainNode.tscn",
+            "command": "${config:GodotTools.editorPath} --path \"${workspaceRoot}\" --editor",
             "problemMatcher": []
         },
         {
