@@ -14,6 +14,10 @@ config/name="gd3mechs"
 run/main_scene="res://MainNode.tscn"
 config/icon="res://icon.png"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "game_save_load_dock", "layout_dock", "my_custom_node" )
+
 [input]
 
 alt=[ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777240,"unicode":0,"echo":false,"script":null)

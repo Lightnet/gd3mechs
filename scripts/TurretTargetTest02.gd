@@ -68,8 +68,11 @@ func setbaserotation(delta):
 		var y = turret_up.normalized()
 		var z = x.cross(y).normalized()
 		var quaternion_current = Quat(turret_transform.basis)
-		var quaternion_new = quaternion_current.slerp(Basis(x, y, z), delta*3.0)
+		var dir = Basis(x, y, z)
+		dir = dir.rotated( Vector3(0,1,0), deg2rad(90))
+		var quaternion_new = quaternion_current.slerp(dir, delta*3.0)
 		var transb = Transform(quaternion_new, turret_transform.origin)
+
 		skeleton.set_bone_pose( boneid, transb )
 
 func setpitchrotation(delta):
@@ -90,9 +93,8 @@ func setpitchrotation(delta):
 	var p2 = turret_transform.origin
 	var p3 = turret_transform.origin + turret_transform.basis.z
 
-
 	var plane = Plane(p1, p2, p3)
-	var look_at = plane.project(basepos)
+	var look_at = plane.project(pitchpos * -1)
 	if typeof(look_at) == TYPE_VECTOR3:
 		#var x = (look_at - turret_transform.origin).normalized()
 		#var y = turret_up.normalized()
@@ -101,9 +103,13 @@ func setpitchrotation(delta):
 		var x = turret_up.normalized()
 		var y = (look_at - turret_transform.origin).normalized()
 		var z = x.cross(y).normalized()
-
+		
 		var quaternion_current = Quat(turret_transform.basis)
-		var quaternion_new = quaternion_current.slerp(Basis(x, y, z), delta*3.0)
+		
+		var dir = Basis(x, y, z)
+		dir = dir.rotated( Vector3(1,0,0), deg2rad(90)) #rotate x
+		dir = dir.rotated( Vector3(0,1,0), deg2rad(180)) #rotate inverse
+		var quaternion_new = quaternion_current.slerp( dir , delta*3.0)
 		var transb = Transform(quaternion_new, turret_transform.origin)
 		skeleton.set_bone_pose( boneid, transb )
 	pass
