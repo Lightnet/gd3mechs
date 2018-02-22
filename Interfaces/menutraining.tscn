@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Interfaces/menucampaign.gd" type="Script" id=1]
 
-[node name="ctrl_menutraining" type="Control" index="0"]
+[node name="ctrl_menutraining" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0

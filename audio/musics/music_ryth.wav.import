@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/music_ryth.wav-712b4e09daeab6290c420a1b9503b2cf.sample"
+
+[deps]
+
+source_file="res://audio/musics/music_ryth.wav"
+source_md5="a3e5eb3e0e634d1faa7008b858565e98"
+
+dest_files=[ "res://.import/music_ryth.wav-712b4e09daeab6290c420a1b9503b2cf.sample" ]
+dest_md5="c7b31cef9ba09432271f2f7d3a3ced9e"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

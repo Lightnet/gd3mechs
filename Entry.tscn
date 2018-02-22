@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Interfaces/MenuEntry.gd" type="Script" id=1]
+[ext_resource path="res://audio/musics/violin_test01.wav" type="AudioStream" id=2]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
 
@@ -14,6 +15,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="ctrl_mainmenu" type="Control" parent="CanvasLayer" index="0"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -272,6 +274,14 @@ group = null
 text = "Cancel"
 flat = false
 align = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer" index="1"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+autoplay = true
+mix_target = 0
+bus = "Musics"
 
 [connection signal="pressed" from="CanvasLayer/ctrl_mainmenu/VBoxContainer/BtnCampaign" to="CanvasLayer/ctrl_mainmenu" method="_on_BtnCampaign_pressed"]
 

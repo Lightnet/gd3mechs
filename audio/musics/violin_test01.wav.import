@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/violin_test01.wav-dd70c453219f18069b17e38e11b4a51c.sample"
+
+[deps]
+
+source_file="res://audio/musics/violin_test01.wav"
+source_md5="6833484837b1917c50ff98d229a84bf3"
+
+dest_files=[ "res://.import/violin_test01.wav-dd70c453219f18069b17e38e11b4a51c.sample" ]
+dest_md5="8d4c366b9cf8f353151ac8ef215a284d"
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0
