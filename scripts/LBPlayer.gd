@@ -1,5 +1,8 @@
 extends KinematicBody
 
+# You may need to adjust depending on the sensitivity of your mouse
+const MOUSE_SENSITIVITY = 0.05
+
 var view_sensitivity = 0.10
 const ACCEL= 2
 const DEACCEL= 4
@@ -77,6 +80,7 @@ func _input(event):
 		var delta = event.position - last_position
 		last_position = event.position
 		#check diff from mouse center drag
+		"""
 		if last_position.x <= 510:
 		#if last_position.x <= 511:
 			if delta.x < 0:
@@ -85,6 +89,9 @@ func _input(event):
 		#if last_position.x >= 511:
 			if delta.x > 0:
 				self.rotate_y(-delta.x * view_sensitivity)
+		"""
+		#http://docs.godotengine.org/en/latest/tutorials/3d/fps_tutorial/part_one.html
+		self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
 		#print(delta.x)
 		
 	if event.is_action_pressed("Fire"):
