@@ -11,7 +11,7 @@ config_version=3
 [application]
 
 config/name="gd3mechs"
-run/main_scene="res://MainNode.tscn"
+run/main_scene="res://TestingArea.tscn"
 config/icon="res://icon.png"
 
 [autoload]
